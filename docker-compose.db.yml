@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  nest-project:
+    image: postgis/postgis
+    ports:
+      - '${POSTGRES_EXTERNAL_PORT:-5432}:5432'
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: nest
+    volumes:
+      - nest_project:/var/lib/postgresql/data
+volumes:
+  nest_project:
