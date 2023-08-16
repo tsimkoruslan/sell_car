@@ -3,8 +3,8 @@ import {IsNumber, IsString} from "class-validator";
 
 export class UserCreateDto {
     @ApiProperty()
-    @IsNumber()
-    id: number
+    @IsString()
+    id: string
 
     @ApiProperty()
     @IsString()

@@ -3,7 +3,7 @@ import {UserCreateDto} from "./dto/user.dto";
 
 @Injectable()
 export class UserService {
-    private users = [{id:1, name:"Ruslan",age:23},{ id:2 ,name: "Anna", age: 20}];
+    private users = [{id:"1", name:"Ruslan",age:23},{ id:"2" ,name: "Anna", age: 20}];
 
     async createUser (body:UserCreateDto){
         this.users.push(body);
@@ -13,7 +13,7 @@ export class UserService {
         return this.users
     }
 
-    async getOneUser (userId:number) {
+    async getOneUser (userId:string) {
         return this.users.find(i => i.id === userId)
     }
 }

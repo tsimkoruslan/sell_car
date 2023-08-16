@@ -20,7 +20,7 @@ export class UserController {
     }
 
     @Get(':userId')
-    async getOneUsers(@Param()userId:number){
+    async getOneUsers(@Param('userId')userId:string){
         return this.userService.getOneUser(userId)
     }
 }
