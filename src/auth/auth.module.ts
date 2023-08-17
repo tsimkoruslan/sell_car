@@ -30,10 +30,8 @@ import {UserService} from "../user/user.service";
               }
             }),
           }),
-    forwardRef(()=>UserModule),
   ],
-  controllers: [AuthController],
-  providers: [AuthService, BearerStrategy, UserService],
+  providers: [AuthService, BearerStrategy],
   exports: [PassportModule, AuthService]
 })
 export class AuthModule {}

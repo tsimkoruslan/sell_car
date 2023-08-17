@@ -5,7 +5,6 @@ import {JwtService} from "@nestjs/jwt";
 import {AuthService} from "./auth.service";
 import { ExtractJwt } from 'passport-jwt'
 import * as process from "process";
-import {User} from "../user/user.entity";
 
 @Injectable()
 export class BearerStrategy extends PassportStrategy(Strategy, 'bearer'){
@@ -19,13 +18,19 @@ export class BearerStrategy extends PassportStrategy(Strategy, 'bearer'){
         });
     };
 
-    async  validate(token: string): Promise<any>{
-        let user: User;
+    async  validate(token: string){
+        let user = null;
+
         try {
-            const payload = await this.jwtService.verify(token);
-            user = await this.authService.validateUser(payload.id);
-        }catch (err) {
-            console.log(new Date().toISOString(), token);
+            const decodeToken: any = this.jwtService.decode(token);
+            user = await this.authService.validateUser(decodeToken);
+        }catch (e) {
+            console.log(
+                new Date().toISOString(),
+                ' [JWT USER VERIFY ERROR] ',
+                JSON.stringify(e),
+                ' [TOKEN] '
+                );
             throw new UnauthorizedException()
         }
     }
