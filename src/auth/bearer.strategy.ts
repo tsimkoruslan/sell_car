@@ -21,11 +21,11 @@ export class BearerStrategy extends PassportStrategy(Strategy, 'bearer') {
 
   async validate(token: string) {
     let user = null;
-    console.log(user)
+    console.log(user);
     try {
       const decodeToken: any = this.jwtService.decode(token);
       user = await this.authService.validateUser(decodeToken);
-      console.log(user)
+      console.log(user);
     } catch (e) {
       console.log(
         new Date().toISOString(),

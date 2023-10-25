@@ -13,7 +13,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('nest project')
+    .setTitle('sell_car')
     .setDescription('The cats API description')
     .setVersion('1.0')
     .addTag('nest')
@@ -23,6 +23,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  await app.listen(3000);
+  await app.listen(3001);
+  console.log('Server started');
 }
 bootstrap();
