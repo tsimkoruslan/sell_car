@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Column({ type: 'varchar', nullable: false })
@@ -11,7 +11,7 @@ export class User {
   @Column({ type: 'varchar', nullable: false, unique: true })
   email: string;
 
-  @Column({ type: 'boolean', default: true })
+  @Column({ type: 'boolean', default: false })
   isActive: boolean;
 
   @Column({ type: 'varchar', nullable: false })

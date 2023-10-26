@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import * as process from 'process';
 
 import { User } from '../user/user.entity';
+import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { BearerStrategy } from './bearer.strategy';
 
@@ -18,18 +19,19 @@ import { BearerStrategy } from './bearer.strategy';
     TypeOrmModule.forFeature([User]),
     JwtModule.registerAsync({
       useFactory: async () => ({
-        secret: process.env.JWT_SECRET_KEY || 'SecretKey',
+        secret: process.env.JWT_SECRET_KEY,
         signOptions: {
-          expiresIn: process.env.JWT_TTL || '24h',
+          expiresIn: process.env.JWT_TTL,
         },
         verifyOptions: {
           clockTolerance: 60,
-          maxAge: process.env.JWT_TTL || '24h',
+          maxAge: process.env.JWT_TTL,
         },
       }),
     }),
   ],
   providers: [AuthService, BearerStrategy],
   exports: [PassportModule, AuthService],
+  controllers: [AuthController],
 })
 export class AuthModule {}

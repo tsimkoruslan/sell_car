@@ -1,15 +1,15 @@
 version: '3.9'
 
 services:
-  nest-project:
+  sell-car-postgres:
     image: postgis/postgis
     ports:
       - '${POSTGRES_EXTERNAL_PORT:-5432}:5432'
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
-      POSTGRES_DB: nest
+      POSTGRES_DB: sell_car
     volumes:
-      - nest_project:/var/lib/postgresql/data
+      - sell_car_project:/var/lib/postgresql/sell_car
 volumes:
-  nest_project:
+  sell_car_project:
