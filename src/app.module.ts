@@ -1,19 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AuthController } from './auth/auth.controller';
-import { AuthModule } from './auth/auth.module';
-import { TypeOrmConfiguration } from './config/database/type-orm-configuration';
-import { UserController } from './user/user.controller';
+import { AppConfigModule } from './config/app/config.module';
+import { TypeOrmConfiguration } from './config/postgres/type-orm-configuration';
 import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync(TypeOrmConfiguration.config),
     UserModule,
-    AuthModule,
+    AppConfigModule,
   ],
-  controllers: [UserController, AuthController],
-  providers: [AuthModule, UserModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
