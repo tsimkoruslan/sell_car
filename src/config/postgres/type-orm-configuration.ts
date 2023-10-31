@@ -1,4 +1,5 @@
 import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
+import * as path from 'path';
 
 import { PostgresqlConfigModule } from './config.module';
 import { PostgresqlConfigService } from './configuration.service';
@@ -15,7 +16,8 @@ export class TypeOrmConfiguration {
         password: configService.password,
         database: configService.database,
         synchronize: true,
-        entities: [`${process.cwd()}/**/*,entity{.js, .ts}`],
+        migrationsRun: false,
+        entities: [path.join(__dirname, 'database', '**', '*.entity{.ts,.js}')],
         migrationsTableName: 'migrations',
       }),
       inject: [PostgresqlConfigService],

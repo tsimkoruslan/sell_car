@@ -8,7 +8,7 @@ const dataSource = new typeorm.DataSource({
   port: '5432',
   username: 'user',
   password: 'pass',
-  database: 'march-2023',
+  database: 'sell_car',
   synchronize: false,
   migrationsRun: false,
   migrationsTableName: 'migrations',
