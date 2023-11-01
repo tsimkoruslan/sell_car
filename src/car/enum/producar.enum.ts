@@ -1,0 +1,17 @@
+export enum EProducer {
+  Audi = 'audi',
+  BMW = 'bmw',
+  Opel = 'opel',
+  Mercedes = 'mercedes',
+  Volkswagen = 'volkswagen',
+  Ford = 'ford',
+  Toyota = 'toyota',
+  Honda = 'honda',
+  Nissan = 'nissan',
+  Hyundai = 'hyundai',
+  Kia = 'kia',
+  Subaru = 'subaru',
+  Volvo = 'volvo',
+  Lexus = 'lexus',
+  Porsche = 'porsche',
+}
