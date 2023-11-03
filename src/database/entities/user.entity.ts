@@ -1,7 +1,14 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { CarEntity } from './car.entity';
 import { CreatedUpdatedModel } from './common/created-updated.model';
+import { RoleEntity } from './role.entity';
 
 @Entity('user')
 export class UserEntity extends CreatedUpdatedModel {
@@ -19,6 +26,9 @@ export class UserEntity extends CreatedUpdatedModel {
 
   @Column({ type: 'boolean', nullable: true })
   status: boolean;
+
+  @OneToOne(() => RoleEntity, (entity) => entity.user)
+  role: RoleEntity;
 
   @OneToMany(() => CarEntity, (entity) => entity.user)
   cars: CarEntity;

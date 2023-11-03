@@ -15,9 +15,16 @@ export class TypeOrmConfiguration {
         username: configService.user,
         password: configService.password,
         database: configService.database,
-        synchronize: true,
         migrationsRun: false,
-        entities: [path.join(__dirname, 'database', '**', '*.entity{.ts,.js}')],
+        entities: [
+          path.join(
+            process.cwd(),
+            'dist',
+            'database',
+            '**',
+            '*.entity{.ts,.js}',
+          ),
+        ],
         migrationsTableName: 'migrations',
       }),
       inject: [PostgresqlConfigService],

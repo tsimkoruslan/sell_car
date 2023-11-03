@@ -1,6 +1,6 @@
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 
-import { CarEntity } from '../database/entities/car.entity';
+import { CarEntity } from '../../database/entities/car.entity';
 import { CarRepository } from './car.repository';
 import { CarCreateRequestDto } from './dto/requset/car-create-req.dto';
 import { CarUpdateReqDto } from './dto/requset/car-update-req.dto';

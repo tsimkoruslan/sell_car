@@ -4,7 +4,7 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 
-import { UserEntity } from '../database/entities/user.entity';
+import { UserEntity } from '../../database/entities/user.entity';
 import { UserCreateRequestDto } from './dto/requset/user-create-req.dto';
 import { UserUpdateReqDto } from './dto/requset/user-update-req.dto';
 import { UserRepository } from './user.repository';

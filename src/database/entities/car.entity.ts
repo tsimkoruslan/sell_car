@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-import { EProducer } from '../../car/enum/producar.enum';
+import { EProducer } from '../../modeles/car/enum/producar.enum';
 import { CreatedUpdatedModel } from './common/created-updated.model';
 import { UserEntity } from './user.entity';
 
@@ -9,7 +9,7 @@ export class CarEntity extends CreatedUpdatedModel {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'enum' })
+  @Column({ type: 'enum', enum: EProducer, enumName: 'producer_enum' })
   producer: EProducer;
 
   @Column({ type: 'text' })
