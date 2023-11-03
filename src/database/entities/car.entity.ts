@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-import { EProducer } from '../../modeles/car/enum/producar.enum';
+import { EProducer } from '../../modules/car/enum/producar.enum';
 import { CreatedUpdatedModel } from './common/created-updated.model';
 import { UserEntity } from './user.entity';
 

@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { ERole } from '../../modeles/role/enum/role.enum';
+import { ERole } from '../../modules/role/enum/role.enum';
 import { UserEntity } from './user.entity';
 
 @Entity('role')
